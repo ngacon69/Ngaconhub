@@ -18,7 +18,7 @@ MainTab:CreateButton({
         local deletedGroup = 0
         local deletedWalls = 0
 
-        -- Xóa 2 cái Group
+
         for _, obj in pairs(workspace:GetDescendants()) do
             if obj:IsA("BasePart") and obj.Name == "Group" then
                 obj:Destroy()
@@ -119,10 +119,10 @@ for i = 2, 9 do
     })
 end
 
--- Section mới hoặc dùng chung Section cũ
+
 TeleportTab:CreateSection("Win") -- tạo section cho dễ nhìn
 
--- Nút teleport đến Badge Giver
+
 TeleportTab:CreateButton({
     Name = "Teleport to Win",
     Callback = function()
