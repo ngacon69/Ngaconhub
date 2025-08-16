@@ -31,26 +31,22 @@ local Window = Rayfield:CreateWindow({
         Key = {"NgaconVerySigma"}
     }
 })
+repeat task.wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
 
-local SupportedGames = {
+print("Supported game!")
+local creator = game.CreatorId
+
+local games = {
     [137987263937629] = "https://raw.githubusercontent.com/ngacon69/Ngaconhub/refs/heads/main/games/slapwallhoptower.lua"
     [130733429041738] = "https://raw.githubusercontent.com/ngacon69/Ngaconhub/refs/heads/main/games/squabblegame.lua"
-}
+} 
 
-local currentGameId = game.PlaceId
-
-if SupportedGames[currentGameId] then
-    local scriptUrl = SupportedGames[currentGameId]
-    local success, err = pcall(function()
-        loadstring(game:HttpGet(scriptUrl))()
-    end)
-
-    if success then
-        print("[Hub] Loaded script for Game ID:", currentGameId)
-    else
-        warn("[Hub] Failed to load script:", err)
-    end
+if games[creator] then 
+    print("Please wait, daddyhh~ loading..")
+    loadstring(game:HttpGet(games[creator]))()
 else
-    warn("[Hub] This game is not supported! (ID: " .. currentGameId .. ")")
-    game:GetService("Players").LocalPlayer:Kick("❌ This game is not supported in Script Hub ❌")
+    warn("Unsupported game.")
 end
