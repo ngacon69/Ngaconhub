@@ -139,3 +139,19 @@ TeleportTab:CreateButton({
         end
     end
 })
+-- Tab Discord
+local DiscordTab = Window:CreateTab("Discord")
+
+DiscordTab:CreateButton({
+    Name = "Join We Hub!",
+    Callback = function()
+        local link = "https://discord.gg/ySchsguvfq"
+        setclipboard(link)  -- copy link vào clipboard
+        Rayfield:Notify({
+            Title = "Discord",
+            Content = "Copyed!",
+            Duration = 3,
+            Image = 4483362458
+        })
+    end
+})
