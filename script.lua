@@ -31,6 +31,7 @@ local Window = Rayfield:CreateWindow({
         Key = {"NgaconVerySigma"}
     }
 })
+
 repeat task.wait() until game.Players.LocalPlayer and game.Players.LocalPlayer.Character
 if not game:IsLoaded() then
     game.Loaded:Wait()
@@ -40,7 +41,7 @@ print("Supported game!")
 local creator = game.CreatorId
 
 local games = {
-    [137987263937629] = "https://raw.githubusercontent.com/ngacon69/Ngaconhub/refs/heads/main/games/slapwallhoptower.lua"
+    [137987263937629] = "https://raw.githubusercontent.com/ngacon69/Ngaconhub/refs/heads/main/games/slapwallhoptower.lua",
     [130733429041738] = "https://raw.githubusercontent.com/ngacon69/Ngaconhub/refs/heads/main/games/squabblegame.lua"
 } 
 
