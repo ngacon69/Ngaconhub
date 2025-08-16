@@ -33,7 +33,8 @@ local Window = Rayfield:CreateWindow({
 })
 
 local SupportedGames = {
-    [137987263937629] = "https://raw.githubusercontent.com/ngacon69/Ngaconhub/refs/heads/main/games/slapwallhoptower.lua" -- Slap Wall Hop Tower
+    [137987263937629] = "https://raw.githubusercontent.com/ngacon69/Ngaconhub/refs/heads/main/games/slapwallhoptower.lua"
+    [130733429041738] = ""
 }
 
 local currentGameId = game.PlaceId
