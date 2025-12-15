@@ -31,24 +31,34 @@ GamesTab:CreateButton({
 })
 
 -- ===== Glass Bridge Section =====
+-- ===== Glass Bridge Section =====
 GamesTab:CreateLabel("Glass Bridge") -- visual label
 
 -- Button 1: Check All Glass (visual)
 GamesTab:CreateButton({
     Name = "Check All Glass (visual)",
     Callback = function()
-        local model3 = workspace:WaitForChild("3")
-        local glasses = model3:WaitForChild("Glasses")
-        for i = 1,23 do
-            local folder = glasses:FindFirstChild(tostring(i))
+        -- Lấy thư mục Stages
+        local StagesFolder = workspace:WaitForChild("Stages") 
+        
+        -- Lấy thư mục Glasses, theo đường dẫn mới: Stages -> 3 -> Glasses
+        local GlassesFolder = StagesFolder:WaitForChild("3"):WaitForChild("Glasses") 
+
+        -- Lặp qua 23 hàng kính
+        for i = 1, 23 do
+            local folder = GlassesFolder:FindFirstChild(tostring(i))
+            
             if folder then
-                for _, name in pairs({"Glass1","Glass2"}) do
+                -- Lặp qua Glass1 và Glass2 trong mỗi hàng
+                for _, name in pairs({"Glass1", "Glass2"}) do
                     local glass = folder:FindFirstChild(name)
-                    if glass then
+                    
+                    if glass and glass:IsA("Part") then
+                        -- Kiểm tra nếu có TouchInterest (thường là dấu hiệu của kính sai/nguy hiểm)
                         if glass:FindFirstChild("TouchInterest") then
-                            glass.BrickColor = BrickColor.new("Really red")
+                            glass.BrickColor = BrickColor.new("Really red") -- Kính nguy hiểm
                         else
-                            glass.BrickColor = BrickColor.new("Bright green")
+                            glass.BrickColor = BrickColor.new("Bright green") -- Kính an toàn
                         end
                     end
                 end
