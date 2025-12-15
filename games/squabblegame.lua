@@ -32,8 +32,8 @@ GamesTab:CreateButton({
 
 -- ===== Glass Bridge Section =====
 -- ===== Glass Bridge Section =====
+-- ===== Glass Bridge Section =====
 GamesTab:CreateLabel("Glass Bridge") -- visual label
-
 -- Button 1: Check All Glass (visual)
 GamesTab:CreateButton({
     Name = "Check All Glass (visual)",
@@ -41,8 +41,11 @@ GamesTab:CreateButton({
         -- Lấy thư mục Stages
         local StagesFolder = workspace:WaitForChild("Stages") 
         
-        -- Lấy thư mục Glasses, theo đường dẫn mới: Stages -> 3 -> Glasses
-        local GlassesFolder = StagesFolder:WaitForChild("3"):WaitForChild("Glasses") 
+        -- Đổi tên biến: Stage3Model thay vì GlassesFolder để nhấn mạnh nó là Model/Stage 3
+        local Stage3Model = StagesFolder:WaitForChild("3")
+        
+        -- Lấy thư mục Glasses (chắc chắn là một thư mục nằm trong Stage 3 Model)
+        local GlassesFolder = Stage3Model:WaitForChild("Glasses") 
 
         -- Lặp qua 23 hàng kính
         for i = 1, 23 do
@@ -66,7 +69,6 @@ GamesTab:CreateButton({
         end
     end
 })
-
 -- mingle
 GamesTab:CreateLabel("Mingle") -- visual label
 
